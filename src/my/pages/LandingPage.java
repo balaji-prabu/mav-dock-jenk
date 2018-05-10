@@ -22,7 +22,7 @@ public class LandingPage {
 		driver.get("https://www.spicinemas.in/");
 		
 		
-		WebDriverWait wait = new WebDriverWait(driver, 10); 
+//		WebDriverWait wait = new WebDriverWait(driver, 10); 
 //		String userInputCitySelection = "coimbatore";
 //		WebElement currentCitySelectedElement = driver.findElement(By.xpath("//span[@class = 'app-icon current-city']//following-sibling::span"));
 //		
