@@ -1,0 +1,7 @@
+*.jar
+*.log
+*.class
+**/logs
+bin/
+target/
+to be done
