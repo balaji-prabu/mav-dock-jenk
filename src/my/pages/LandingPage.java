@@ -9,15 +9,29 @@ import org.openqa.selenium.By.ByXPath;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.By.ById;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LandingPage {
+public class LandingPage extends WebUIInteractions {
 	
-	public static void main(String [] args ) {
-		System.setProperty("webdriver.gecko.driver", "resources/geckodriver");
-		WebDriver driver = new FirefoxDriver();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	private static By downArrowButton = By.xpath("//form[@id='cityForm']//b[@class='dropdown-arrow']");
+	private static By cityDropDown = By.xpath("//div[@class='selectric-scroll']");
+	private static By okButton = By.id("selectCity");
+	
+	WebDriver driver = null;
+//	WebDriverWait wait = new WebDriverWait(driver, 10);
+	
+	public boolean checkIfLocationSelectionWindowIsOpen() {
+		return isElementDisplayed(downArrowButton);
+	}
+	
+	public void selectCityAndClickOk(String cityName) {
+		click(downArrowButton);
+		selectOptionInDropDown(cityDropDown, cityName);
+		click(okButton);
+	}
+	
+	/*public static void main(String [] args ) {
+		
 		
 		driver.get("https://www.spicinemas.in/");
 		
@@ -32,7 +46,7 @@ public class LandingPage {
 		
 			downArrowButton.click();
 
-			ByXPath cbeElement = new ByXPath("//li[text()='coimbatore']");
+			ByXPath cbeElement = new ByXPath("");
 			driver.findElement(cbeElement).click();
 
 			
@@ -44,15 +58,7 @@ public class LandingPage {
 		
 		
 	}
+	*/
 	
-	public static WebElement ifPresentReturnElementElseNull(String xpath, WebDriver driver) {
-		WebElement element = null;
-		try {
-			element = driver.findElement(By.xpath(xpath));
-		} catch(NoSuchElementException e) {
-			System.out.println("element not found");
-		}
-		return element;
-	}
 	
 }
