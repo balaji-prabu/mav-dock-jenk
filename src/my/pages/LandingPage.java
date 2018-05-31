@@ -9,17 +9,26 @@ import org.openqa.selenium.By.ByXPath;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.By.ById;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LandingPage extends WebUIInteractions {
 	
+	
 	private static By downArrowButton = By.xpath("//form[@id='cityForm']//b[@class='dropdown-arrow']");
 	private static By cityDropDown = By.xpath("//div[@class='selectric-scroll']");
+//	@FindBy(id="selectCity")
 	private static By okButton = By.id("selectCity");
-	
-	WebDriver driver = null;
+	private static By quickBookingButton = By.id("quickbook__handle");
+	private static By moviesPageButton = By.xpath("//a[text()='Movies']");
+//	WebDriver driver = null;
 //	WebDriverWait wait = new WebDriverWait(driver, 10);
 	
+	public LandingPage LandingPageFactoryInit(WebDriver webDriver) {
+		return PageFactory.initElements(webDriver, LandingPage.class);
+	}
+
 	public boolean checkIfLocationSelectionWindowIsOpen() {
 		return isElementDisplayed(downArrowButton);
 	}
@@ -28,6 +37,12 @@ public class LandingPage extends WebUIInteractions {
 		click(downArrowButton);
 		selectOptionInDropDown(cityDropDown, cityName);
 		click(okButton);
+	}
+	public void clickQuickBooking() {
+		click(quickBookingButton);
+	}
+	public void clickMoviesButton() {
+		click(moviesPageButton);
 	}
 	
 	/*public static void main(String [] args ) {

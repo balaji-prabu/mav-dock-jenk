@@ -1,5 +1,8 @@
 package my.pages;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -19,16 +22,34 @@ public class WebUIInteractions extends DriverFactory{
         }
     }
 	
-	public void selectOptionInDropDown(By locator, String optionToBeSelected) {
+	protected void click(WebElement element) {
+		// TODO Auto-generated method stub
+		element.click();
+	}
+	
+	protected String getCurrentUrl() {
+		return driver.getCurrentUrl();
+	}
+	
+	protected ArrayList<String> getListOfElements(By locator) {
+		List<WebElement> elements = driver.findElements(locator);
+		ArrayList<String> elementsText = new ArrayList<String> ();
+		for(WebElement currentElement : elements) {
+			elementsText.add(currentElement.getText());
+		}
+		return elementsText;
+	}
+	
+	protected void selectOptionInDropDown(By locator, String optionToBeSelected) {
 		By selectionLocator = By.xpath("//li[text()='"+optionToBeSelected+"']");
 		driver.findElement(locator).findElement(selectionLocator).click();
 	}
 	
-	public void click(By locator) {
+	protected void click(By locator) {
 		driver.findElement(locator).click();
 	}
 	
-	public static WebElement ifPresentReturnElementElseNull(String xpath, WebDriver driver) {
+	protected static WebElement ifPresentReturnElementElseNull(String xpath, WebDriver driver) {
 		WebElement element = null;
 		try {
 			element = driver.findElement(By.xpath(xpath));
@@ -38,7 +59,7 @@ public class WebUIInteractions extends DriverFactory{
 		return element;
 	}
 	
-	 private static WebElement findElementWithWait(By by, int defaultWait) {
+	protected static WebElement findElementWithWait(By by, int defaultWait) {
 	        WebDriverWait wait = new WebDriverWait(driver, defaultWait);
 	        wait.until(ExpectedConditions.presenceOfElementLocated(by));
 	        return driver.findElement(by);
