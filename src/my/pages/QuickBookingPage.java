@@ -8,7 +8,7 @@ public class QuickBookingPage extends WebUIInteractions{
 //	private static By cinemaElement = By.xpath("//a[@title='Select a Cinema']");
 	private static By theatreElement = By.xpath("//a[@title='Select a Cinema']//following::a[text()='The Cinema']");
 	private static By ticketElement = By.xpath("//li[@data-filter-display-value='2 Tickets']");
-	private static By showElement = By.xpath("//span[@data-filter-value='SCREEN4 - ELITE - 7:00 PM']");
+	private static By showElement = By.xpath("//span[@data-filter-value='SCREEN5 - ELITE - 12:30 PM']");
 	private static By buyTicketsButton = By.xpath("//a[@class='button buyTicket']");
 	
 	

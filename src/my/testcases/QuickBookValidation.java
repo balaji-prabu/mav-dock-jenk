@@ -6,7 +6,7 @@ public class QuickBookValidation extends BaseTest{
 
 	@Test
 	public void selectCityInLandingPage() {
-		System.out.println("now showing start");
+		System.out.println("now showing start.");
 		if(landingPage().checkIfLocationSelectionWindowIsOpen()) {
 			landingPage().selectCityAndClickOk("coimbatore");
 			landingPage().clickMoviesButton();
@@ -29,7 +29,7 @@ public class QuickBookValidation extends BaseTest{
 		System.out.println("now showing end");
 	}
 	
-	@Test
+	@Test(dependsOnMethods= {"selectCityInLandingPage"})
 	public void quickBooking() {
 		System.out.println("movei selection start");
 		landingPage().selectCityAndClickOk("coimbatore");

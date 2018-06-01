@@ -36,9 +36,9 @@ public class DriverFactory {
 	}
 
 	public static WebDriver getWebDriver(){
-		if(driver != null)
+		/*if(driver != null)
 			return driver;
-		else
+		else*/
 			System.setProperty("webdriver.gecko.driver", "resources/geckodriver");
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
