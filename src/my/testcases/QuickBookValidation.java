@@ -29,7 +29,7 @@ public class QuickBookValidation extends BaseTest{
 		System.out.println("now showing end");
 	}
 	
-	@Test(dependsOnMethods= {"selectCityInLandingPage"})
+	@Test(dependsOnMethods= {})
 	public void quickBooking() {
 		System.out.println("movei selection start");
 		landingPage().selectCityAndClickOk("coimbatore");
