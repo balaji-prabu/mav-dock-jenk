@@ -6,9 +6,9 @@ import my.pages.QuickBookingPage;
 
 public class PageFactory {
 
-	private static LandingPage landingPageObj = null;
-	private static MoviesPage moviesPageObj = null;
-	private static QuickBookingPage quickBookingPageObj = null;
+	private LandingPage landingPageObj = null;
+	private MoviesPage moviesPageObj = null;
+	private QuickBookingPage quickBookingPageObj = null;
 	
 	public void initializePageObjects() {
 		landingPageObj = new LandingPage();
@@ -16,27 +16,30 @@ public class PageFactory {
 		quickBookingPageObj = new QuickBookingPage();
 	}
 	
-	public void initializePageObjectsNowShowing() {
-		landingPageObj = new LandingPage();
-		moviesPageObj = new MoviesPage();
+	public PageFactory initializePageObjectsNowShowing() {
+		
+		this.landingPageObj = new LandingPage();
+		this.moviesPageObj = new MoviesPage();
+		return this;
 //		landingPageObj = landingPageObj.LandingPageFactoryInit(DriverFactory.getWebDriver());
 	}
 	
-	public void initializePageObjectsQuickBooking() {
+	public PageFactory initializePageObjectsQuickBooking() {
 		landingPageObj = new LandingPage();
 		quickBookingPageObj = new QuickBookingPage();
+		return this;
 //		landingPageObj = landingPageObj.LandingPageFactoryInit(DriverFactory.getWebDriver());
 	}
 	
-	public static LandingPage landingPage() {
+	public LandingPage landingPage() {
 		return landingPageObj;
 	}
 	
-	public static MoviesPage moviesPage() {
+	public MoviesPage moviesPage() {
 		return moviesPageObj;
 	}
 	
-	public static QuickBookingPage quickBookingPage() {
+	public QuickBookingPage quickBookingPage() {
 		return quickBookingPageObj;
 	}
 }

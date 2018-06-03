@@ -3,7 +3,7 @@ package my.pages;
 import org.openqa.selenium.By;
 
 public class QuickBookingPage extends WebUIInteractions{
-	private static By dateElement = By.xpath("//li[@data-filter-value='02-06-2018']");
+	private static By dateElement = By.xpath("//li[@data-filter-value='04-06-2018']");
 	private static By movieElement = By.xpath("//span[@title='AVENGERS INFINITY WAR']");
 //	private static By cinemaElement = By.xpath("//a[@title='Select a Cinema']");
 	private static By theatreElement = By.xpath("//a[@title='Select a Cinema']//following::a[text()='The Cinema']");

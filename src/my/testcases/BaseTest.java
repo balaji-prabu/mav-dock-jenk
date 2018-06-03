@@ -15,6 +15,7 @@ import my.factory.PageFactory;
 public class BaseTest extends PageFactory{
 
 	WebDriver driver = null;
+	PageFactory pageObj = null;
 	
 	@Parameters({ "app-url" })
 	@BeforeMethod()
@@ -23,13 +24,14 @@ public class BaseTest extends PageFactory{
         initialize();
         clearCookies();
         goToHomePage(appUrl);
+        pageObj = new PageFactory();
     }
 	
 	
 	
 	private void goToHomePage(String appUrl) {
 		driver.get(appUrl);
-		initializePageObjects();
+//		initializePageObjects();
 	}
 
 

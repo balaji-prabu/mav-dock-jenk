@@ -2,22 +2,25 @@ package my.testcases;
 
 import org.testng.annotations.Test;
 
+
 public class QuickBookValidation extends BaseTest{
 
 	@Test
 	public void selectCityInLandingPage() {
 		System.out.println("now showing start.");
-		if(landingPage().checkIfLocationSelectionWindowIsOpen()) {
-			landingPage().selectCityAndClickOk("coimbatore");
-			landingPage().clickMoviesButton();
+		
+		pageObj.initializePageObjectsNowShowing();
+		if(pageObj.landingPage().checkIfLocationSelectionWindowIsOpen()) {
+			pageObj.landingPage().selectCityAndClickOk("coimbatore");
+			pageObj.landingPage().clickMoviesButton();
 			try {
 				Thread.sleep(5000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			if(moviesPage().checkIfNowShowingIsSelected()) {
-				System.out.println(moviesPage().getListOfNowShowingMovies());
+			if(pageObj.moviesPage().checkIfNowShowingIsSelected()) {
+				System.out.println(pageObj.moviesPage().getListOfNowShowingMovies());
 			} else {
 				System.out.println("Not at now-showing");
 			}
@@ -31,11 +34,12 @@ public class QuickBookValidation extends BaseTest{
 	
 	@Test(dependsOnMethods= {})
 	public void quickBooking() {
+		pageObj.initializePageObjectsQuickBooking();
 		System.out.println("movei selection start");
-		landingPage().selectCityAndClickOk("coimbatore");
-		landingPage().clickQuickBooking();
+		pageObj.landingPage().selectCityAndClickOk("coimbatore");
+		pageObj.landingPage().clickQuickBooking();
 		
-		quickBookingPage().selectMovie();
+		pageObj.quickBookingPage().selectMovie();
 		System.out.println("movei selection end");
 	}
 	
