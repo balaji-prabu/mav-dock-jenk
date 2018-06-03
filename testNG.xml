@@ -4,7 +4,7 @@
 <suite name="Suite1" verbose="1" parallel="methods" thread-count="2">
 
 
-	<test name="Parallel Exec">
+	<test name="Parallel Exec" parallel="methods" thread-count="2">
 		<classes>
 			<class name="my.testcases.QuickBookValidation" >
 			<methods>
