@@ -24,14 +24,14 @@ public class BaseTest extends PageFactory{
         initialize();
         clearCookies();
         goToHomePage(appUrl);
-        pageObj = new PageFactory();
+//        pageObj = new PageFactory();
     }
 	
 	
 	
 	private void goToHomePage(String appUrl) {
 		driver.get(appUrl);
-//		initializePageObjects();
+		initializePageObjects();
 	}
 
 

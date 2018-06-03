@@ -1,9 +1,13 @@
 package my.factory;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class DriverFactory {
 
@@ -35,13 +39,15 @@ public class DriverFactory {
 		return driver;
 	}
 
-	public static WebDriver getWebDriver(){
-		/*if(driver != null)
-			return driver;
-		else*/
-			System.setProperty("webdriver.gecko.driver", "resources/geckodriver");
-		driver = new FirefoxDriver();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+	public static RemoteWebDriver getWebDriver(){
+		RemoteWebDriver driver = null;
+		try {
+			driver = new RemoteWebDriver(new URL("http://172.18.0.2:4444/wd/hub"), DesiredCapabilities.chrome()); 
+			
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return driver;
 	}
 

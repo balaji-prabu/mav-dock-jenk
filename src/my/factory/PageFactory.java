@@ -6,11 +6,11 @@ import my.pages.QuickBookingPage;
 
 public class PageFactory {
 
-	private LandingPage landingPageObj = null;
-	private MoviesPage moviesPageObj = null;
-	private QuickBookingPage quickBookingPageObj = null;
+	private static LandingPage landingPageObj = null;
+	private static MoviesPage moviesPageObj = null;
+	private static QuickBookingPage quickBookingPageObj = null;
 	
-	public void initializePageObjects() {
+	public static void initializePageObjects() {
 		landingPageObj = new LandingPage();
 		moviesPageObj = new MoviesPage();
 		quickBookingPageObj = new QuickBookingPage();
