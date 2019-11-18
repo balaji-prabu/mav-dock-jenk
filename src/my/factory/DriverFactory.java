@@ -5,13 +5,14 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class DriverFactory {
 
-	protected static WebDriver driver = null;
+	protected static RemoteWebDriver driver = null;
 	private static final String FIREFOX = "firefox";
 	private static final String CHROME = "chrome";
 
@@ -40,9 +41,8 @@ public class DriverFactory {
 	}
 
 	public static RemoteWebDriver getWebDriver(){
-		RemoteWebDriver driver = null;
 		try {
-			driver = new RemoteWebDriver(new URL("http://172.18.0.2:4444/wd/hub"), DesiredCapabilities.chrome()); 
+			driver = new RemoteWebDriver(new URL("http://172.18.0.2:4444/wd/hub"), new ChromeOptions()); 
 			
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block

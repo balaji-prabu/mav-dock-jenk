@@ -49,7 +49,7 @@ public class BaseTest extends PageFactory{
 
 
 
-	@AfterMethod()
+//	@AfterMethod()
 	public void close() {
 		System.out.println("Inside driver close method");
 		driver.quit();
